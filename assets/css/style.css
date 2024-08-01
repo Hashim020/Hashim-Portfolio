@@ -824,6 +824,7 @@ a:hover {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+<<<<<<< HEAD
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -858,6 +859,65 @@ a:hover {
 .skill-mf .progress .progress-bar {
   height: 0.7rem;
   background-color: #0078ff;
+=======
+.about {
+  background-color: #f7f7f7;
+  padding: 100px 0;
+}
+
+.about-image {
+  margin-bottom: 30px;
+}
+
+.about-image img {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-info {
+  margin-bottom: 30px;
+}
+
+.about-info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.about-info p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.about-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-info ul li {
+  margin-bottom: 10px;
+}
+
+.about-info ul li strong {
+  font-weight: bold;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+>>>>>>> origin/master
 }
 
 /*--------------------------------------------------------------
