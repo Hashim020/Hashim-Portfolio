@@ -649,6 +649,7 @@
         fetch(scriptURL, {
           method: 'POST',
           body: new FormData(form),
+          mode: 'no-cors',
           headers: {
             'Access-Control-Allow-Origin': '*'
           }
