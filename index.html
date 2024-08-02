@@ -650,7 +650,7 @@
         fetch(scriptURL, {
           method: 'POST',
           body: new FormData(form),
-          mode: 'cors'  // Ensure CORS mode is correctly set if needed
+          mode: 'no-cors'
         })
           .then(response => {
             if (!response.ok) {
