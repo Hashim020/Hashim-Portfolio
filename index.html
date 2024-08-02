@@ -643,43 +643,22 @@
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementById("msg")
 
-
     form.addEventListener('submit', e => {
-      e.preventDefault();
+      e.preventDefault()
       if (validateForm()) {
         fetch(scriptURL, {
-          method: 'POST',
-          body: new FormData(form),
-          mode: 'no-cors'
+          method: 'POST', body: new FormData(form), mode: 'no-cors'
         })
           .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();  // Use text() to inspect raw response
+            msg.innerHTML = "Sent Successfully"
+            setTimeout(function () {
+              msg.innerHTML = ""
+            }, 5000)
+            form.reset()
           })
-          .then(text => {
-            console.log('Response text:', text);  // Log the response
-            try {
-              const data = JSON.parse(text);  // Attempt to parse JSON
-              msg.innerHTML = "Sent Successfully";
-              setTimeout(() => {
-                msg.innerHTML = "";
-              }, 5000);
-              form.reset();
-            } catch (e) {
-              console.error('Error parsing JSON:', e);
-            }
-          })
-          .catch(error => {
-            console.error('Error!', error.message);
-            msg.innerHTML = "Failed to send.";
-          });
+          .catch(error => console.error('Error!', error.message))
       }
-    });
-
-
-
+    })
   </script>
 
 </body>
