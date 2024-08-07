@@ -514,7 +514,11 @@
 
                           </div>
                           <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
+                            <!-- Spinner -->
+                            <div id="spinner" class="spinner-border text-info" role="status" style="display: none; position: absolute; margin-top:-39px; margin-left: 80px;">
+                              <span class="sr-only">Loading...</span>
+                            </div>
+                            <button type="submit" id="sendButton" class="button button-a button-big button-rouded">Send Message</button>
                           </div>
                         </div>
                       </form>
@@ -639,7 +643,7 @@
       // If all validations pass, return true to submit the form
       return true;
     }
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyzC1YfkITcaO3ROhDJxlF2DYvV4r3RPfc4G_acnEplDndJEaY7Ylfh4wbqG-aEdmCqzA/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyOHRdrvrwLlIVMA33COpleygB15p1-LshpMLvlctlN8qSkZBO72SoQbK1NNzAh28h1/exec'
     const form = document.forms['submit-to-google-sheet']
     const msg = document.getElementById("msg")
 
@@ -659,6 +663,19 @@
           .catch(error => console.error('Error!', error.message))
       }
     })
+
+    document.getElementById('sendButton').addEventListener('click', function () {
+      // Show spinner
+      document.getElementById('spinner').style.display = 'inline-block';
+
+      // Simulate form submission
+      // Replace the following timeout with your actual form submission logic
+      setTimeout(function () {
+        // Hide spinner after 3 seconds (for demo purposes)
+        document.getElementById('spinner').style.display = 'none';
+      }, 3000);
+    });
+
   </script>
 
 </body>
