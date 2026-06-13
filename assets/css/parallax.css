@@ -1,0 +1,26 @@
+/* assets/css/parallax.css
+   Link AFTER style.css. Lets parallax.js drive motion.
+   The template uses background-attachment:fixed on .bg-image; we switch the
+   parallax targets to 'scroll' so JS-driven background-position is visible. */
+
+[data-parallax-bg] {
+  background-attachment: scroll !important;
+  will-change: background-position;
+}
+
+[data-parallax] {
+  will-change: transform;
+}
+
+/* Match the template's own breakpoint: no parallax on tablets/phones
+   (fixed/transform parallax is janky on touch). Keep things static. */
+@media (max-width: 1024px) {
+  [data-parallax-bg] { background-position: center center !important; }
+  [data-parallax]    { transform: none !important; }
+}
+
+/* Respect reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax-bg] { background-position: center center !important; }
+  [data-parallax]    { transform: none !important; }
+}
