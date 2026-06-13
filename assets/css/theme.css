@@ -44,6 +44,20 @@ h1, h2, h3, h4, h5, .title-a, .s-title, .w-title { font-family: var(--font-displ
 @media (max-width: 991px) {
   #header { backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
+/* Mobile menu: match the dark theme (base skin is gray scrim + white panel).
+   Link rules use #navbar.navbar-mobile to outrank #navbar a above. */
+.navbar-mobile { background: rgba(11, 14, 20, 0.75); }
+.navbar-mobile ul {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+#navbar.navbar-mobile a,
+#navbar.navbar-mobile a:focus { color: var(--text); }
+#navbar.navbar-mobile a:hover,
+#navbar.navbar-mobile .active,
+#navbar.navbar-mobile li:hover > a { color: var(--accent); }
+.navbar-mobile .mobile-nav-toggle { color: var(--text); }
 
 /* ---- Section rhythm: alternate surfaces so sections separate in the dark ---- */
 #about, #work { background: var(--bg); }
