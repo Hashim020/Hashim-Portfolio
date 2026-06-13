@@ -16,6 +16,23 @@
 [data-reveal="fade-left"]  { transform: translateX(40px); }
 [data-reveal="zoom-in"]    { transform: scale(0.92); }
 
+/* Flip-up: card tips up from its bottom edge (used on Services). */
+[data-reveal="flip-up"] {
+  transform: perspective(900px) rotateX(-18deg) translateY(30px);
+  transform-origin: center bottom;
+}
+
+/* Blur-in: focuses into place (used on Education). */
+[data-reveal="blur-in"] {
+  transform: scale(1.03);
+  filter: blur(12px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+[data-reveal="blur-in"].revealed { filter: blur(0); }
+
 [data-reveal].revealed {
   opacity: 1;
   transform: none;
