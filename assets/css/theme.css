@@ -157,3 +157,29 @@ footer { background: var(--bg) !important; border-top: 1px solid var(--border); 
 @media (prefers-reduced-motion: reduce) {
   .hero-dot { animation: none; }
 }
+
+/* ---- About (redesigned) ---- */
+.about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.2rem; }
+.about-stats .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem .6rem; text-align: center; }
+.about-stats .stat-num { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--accent); }
+.about-stats .stat-label { display: block; font-size: .78rem; color: var(--muted); margin-top: .15rem; }
+
+.about-info p { color: var(--muted); line-height: 1.7; }
+.about-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 1.5rem; margin: 1.5rem 0; }
+.about-meta .meta-item { display: flex; flex-direction: column; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+.about-meta .meta-label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.about-meta .meta-value { color: var(--text); font-size: .95rem; }
+.about-meta .meta-value a { color: var(--text); }
+.about-meta .meta-value a:hover { color: var(--accent-2); }
+
+.about-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 2rem; }
+
+.skill-groups { display: flex; flex-direction: column; gap: 1.1rem; }
+.skill-group h4 { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.skill-group .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.skill-group .skills-list li { margin: 0; padding: .4rem .75rem; font-size: .85rem; }
+
+@media (max-width: 575px) {
+  .about-meta { grid-template-columns: 1fr; }
+  .about-stats .stat-num { font-size: 1.35rem; }
+}
