@@ -1,0 +1,37 @@
+/* assets/css/animations.css
+   Scroll-reveal animations — link this AFTER style.css.
+   Pure CSS + IntersectionObserver (see animations.js). No external library. */
+
+[data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Direction variants — set the start position; .revealed returns to rest. */
+[data-reveal="fade-up"]    { transform: translateY(40px); }
+[data-reveal="fade-down"]  { transform: translateY(-40px); }
+[data-reveal="fade-right"] { transform: translateX(-40px); }
+[data-reveal="fade-left"]  { transform: translateX(40px); }
+[data-reveal="zoom-in"]    { transform: scale(0.92); }
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger helpers for grids (services, work cards). */
+[data-reveal-delay="100"] { transition-delay: 0.10s; }
+[data-reveal-delay="200"] { transition-delay: 0.20s; }
+[data-reveal-delay="300"] { transition-delay: 0.30s; }
+[data-reveal-delay="400"] { transition-delay: 0.40s; }
+
+/* Accessibility: users who ask the OS to reduce motion see no animation. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
