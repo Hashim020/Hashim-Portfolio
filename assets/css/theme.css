@@ -38,6 +38,12 @@ h1, h2, h3, h4, h5, .title-a, .s-title, .w-title { font-family: var(--font-displ
 #navbar a, #navbar a:focus { color: var(--muted); }
 #navbar a:hover, #navbar .active, #navbar a.active { color: var(--text); }
 .navbar .getstarted, .mobile-nav-toggle { color: var(--text); }
+/* backdrop-filter turns #header into the containing block for its
+   position:fixed descendants, which collapses the fixed .navbar-mobile
+   overlay to the header bar. Disable it where the mobile menu is used. */
+@media (max-width: 991px) {
+  #header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
 
 /* ---- Section rhythm: alternate surfaces so sections separate in the dark ---- */
 #about, #work { background: var(--bg); }
