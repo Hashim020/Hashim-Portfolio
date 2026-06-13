@@ -25,6 +25,8 @@
   <link href="assets/css/animations.css" rel="stylesheet">
   <!-- Parallax scrolling -->
   <link href="assets/css/parallax.css" rel="stylesheet">
+  <!-- Site-wide dark theme (load last) -->
+  <link href="assets/css/theme.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: DevFolio
@@ -51,6 +53,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#work">Work</a></li>
+          <li><a class="nav-link scrollto " href="#blog">Education</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -60,20 +63,39 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <div id="hero" class="hero route bg-image" data-parallax-bg="0.25" style="background-image: url(assets/img/hero-bg.jpg)">
-    <div class="overlay-itro"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="hero-title mb-4">I am H A S H I M</h1>
-         <p class="hero-subtitle"><span class="typed"
-    data-typed-items="MERN Stack Developer, Full Stack Developer, GraphQL Developer"></span></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+  <!-- new split hero; .typed is animated by Typed.js in main.js -->
+  <section id="hero" class="hero route">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="container hero-wrap">
+      <div class="hero-intro">
+        <span class="hero-eyebrow"><span class="hero-dot"></span> Available for freelance &amp; full-time</span>
+        <h1 class="hero-title">Hashim <span class="hero-last">M.A</span></h1>
+        <div class="hero-role">I build <span class="typed" data-typed-items="full-stack web apps, MERN applications, GraphQL APIs, things that scale"></span></div>
+        <p class="hero-lede">Full-stack developer crafting reliable web apps end to end — from MongoDB schemas and GraphQL APIs to polished React interfaces.</p>
+        <div class="hero-cta">
+          <a class="hero-btn hero-btn-primary scrollto" href="#work">View my work <i class="fas fa-arrow-right"></i></a>
+          <a class="hero-btn hero-btn-ghost scrollto" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Hashim020" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/hashimma" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://leetcode.com/u/Hashim_020/" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+          <a href="https://www.instagram.com/hashim__020/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:ma.hashim200@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
+      <div class="hero-panel">
+        <div class="hero-panel-bar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="hero-panel-name">hashim.js</span></div>
+<pre class="hero-code"><span class="ln">1</span><span class="k">const</span> hashim = {
+<span class="ln">2</span>  <span class="p">role</span>: <span class="s">"Full-Stack Developer"</span>,
+<span class="ln">3</span>  <span class="p">stack</span>: [<span class="s">"React"</span>, <span class="s">"Node"</span>, <span class="s">"Mongo"</span>, <span class="s">"GraphQL"</span>],
+<span class="ln">4</span>  <span class="p">location</span>: <span class="s">"Kerala, India"</span>,
+<span class="ln">5</span>  <span class="p">openToWork</span>: <span class="n">true</span>,
+<span class="ln">6</span>};</pre>
+      </div>
     </div>
-  </div><!-- End Hero Section -->
+  </section><!-- End Hero Section -->
 
   <main id="main">
 
@@ -453,7 +475,40 @@
     </div>
     <!-- End Testimonials Section -->
 
-   
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center" data-reveal="fade-up">
+              <h3 class="title-a">
+                Education
+              </h3>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+       
+          <div class="col-md-4">
+            <div class="card card-blog" data-reveal="blur-in">
+              <div class="card-img">
+              </div>
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                    <h6 class="category">Degree</h6>
+                  </div>
+                </div>
+                <h6 class="card-description">
+                  Bachelor of Commerce Finance and Taxation
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" data-parallax-bg="0.18"
