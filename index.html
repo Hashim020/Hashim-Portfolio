@@ -28,6 +28,9 @@
   <!-- Site-wide dark theme (load last) -->
   <link href="assets/css/theme.css" rel="stylesheet">
 
+  <!-- Immersive 3D skin (load after theme.css; scoped to html.im-on) -->
+  <link href="assets/css/immersive.css" rel="stylesheet">
+
   <!-- =======================================================
   * Template Name: DevFolio
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -38,6 +41,17 @@
 </head>
 
 <body>
+
+  <!-- Immersive 3D layer: loader + WebGL canvas (driven by assets/js/immersive.js) -->
+  <div id="im-loader" aria-hidden="true">
+    <div class="im-loader-inner">
+      <span class="im-loader-label">HASHIM M.A &mdash; PORTFOLIO</span>
+      <span class="im-loader-count">000</span>
+      <span class="im-loader-bar"><i></i></span>
+    </div>
+  </div>
+  <canvas id="im-canvas" aria-hidden="true"></canvas>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -629,6 +643,8 @@
   <script src="assets/js/animations.js"></script>
   <!-- Parallax scrolling -->
   <script src="assets/js/parallax.js"></script>
+  <!-- Immersive 3D scene (ES module; falls back to the standard layout without WebGL) -->
+  <script type="module" src="assets/js/immersive.js"></script>
   <script>
     function validateForm() {
       // Get the values of the input fields
