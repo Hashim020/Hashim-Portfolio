@@ -1,0 +1,162 @@
+/* assets/css/immersive.css
+   Igloo-style immersive skin. Link LAST in <head> (after theme.css).
+   Every rule except the loader is scoped to html.im-on, which immersive.js adds
+   only after WebGL starts — so without WebGL the site keeps the theme.css look. */
+
+/* ---------- Loader (works without JS: auto-hides after 5s) ---------- */
+#im-loader {
+  position: fixed; inset: 0; z-index: 10000;
+  display: grid; place-items: center;
+  background: #050a14; color: #cfefff;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  transition: opacity .8s ease, visibility .8s ease;
+  animation: im-loader-fallback .6s ease 5s forwards;
+}
+#im-loader.is-done { opacity: 0; visibility: hidden; }
+@keyframes im-loader-fallback { to { opacity: 0; visibility: hidden; } }
+.im-loader-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.im-loader-label { font-size: .7rem; letter-spacing: .4em; color: #6f8fb0; }
+.im-loader-count { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+.im-loader-bar { width: 180px; height: 1px; background: rgba(160, 220, 255, .15); overflow: hidden; }
+.im-loader-bar i { display: block; height: 100%; background: #9fe4ff; transform: scaleX(0); transform-origin: left; }
+
+/* ---------- Canvas ---------- */
+#im-canvas { display: none; }
+html.im-on #im-canvas {
+  display: block; position: fixed; inset: 0; width: 100vw; height: 100vh;
+  z-index: -1; pointer-events: none; /* behind content; no offsetParent changes */
+}
+
+/* ---------- Palette shift: cold ice ---------- */
+html.im-on {
+  --accent: #7fd4ff;
+  --accent-2: #c3f1ff;
+  --border: rgba(160, 220, 255, .13);
+  --border-hover: #7fd4ff;
+  --muted: #8ea3bd;
+  --glass: linear-gradient(160deg, rgba(22, 38, 62, .52), rgba(6, 12, 24, .58));
+  --glass-blur: blur(16px) saturate(150%);
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 30px 70px -35px rgba(0, 0, 0, .85);
+}
+
+/* ---------- Make the page float over the scene ---------- */
+html.im-on body { background: transparent !important; }
+html.im-on #hero,
+html.im-on #about,
+html.im-on #services,
+html.im-on #work,
+html.im-on section#contact,
+html.im-on footer { background: transparent !important; }
+html.im-on #contact.bg-image { background: transparent !important; background-image: none !important; }
+html.im-on .hero-bg-grid,
+html.im-on .hero-glow { display: none; }
+html.im-on #preloader { display: none; }
+
+/* Generous vertical rhythm so each camera move has room to breathe */
+html.im-on #about,
+html.im-on #services,
+html.im-on #work { padding-top: 16vh; padding-bottom: 16vh; }
+/* section# — index.html also has an inner div with id="contact" */
+html.im-on section#contact { margin-top: 0; padding: 22vh 0 18vh; }
+
+/* ---------- Glass surfaces ---------- */
+html.im-on .about-info,
+html.im-on .about-stats .stat,
+html.im-on .service-box,
+html.im-on .work-box,
+html.im-on .box-shadow-full {
+  background: var(--glass) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+html.im-on .about-info { padding: 2.2rem; border-radius: 18px; }
+html.im-on .service-box:hover,
+html.im-on .work-box:hover {
+  border-color: rgba(127, 212, 255, .55) !important;
+  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(127, 212, 255, .15), 0 0 40px -6px rgba(127, 212, 255, .35) !important;
+}
+html.im-on .work-img img { transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .6s; filter: saturate(.85); }
+html.im-on .work-box:hover .work-img img { transform: scale(1.045); filter: saturate(1.05); }
+html.im-on .skills-list li,
+html.im-on .ico-circle { background: rgba(127, 212, 255, .06) !important; }
+html.im-on .about-image img { border-color: var(--border); box-shadow: var(--glass-shadow); }
+
+/* ---------- Hero: text left, crystal fills the right ---------- */
+html.im-on .hero { min-height: 100vh; height: auto; }
+html.im-on .hero-panel { display: none; }
+html.im-on .hero .hero-title { font-size: clamp(3rem, 8vw, 6.6rem); letter-spacing: -.035em; text-transform: uppercase; }
+html.im-on .hero .hero-last { color: transparent; -webkit-text-stroke: 1px rgba(195, 241, 255, .55); }
+html.im-on .hero-intro { text-shadow: 0 2px 30px rgba(5, 10, 20, .8); }
+html.im-on .hero-eyebrow,
+html.im-on .hero-socials a,
+html.im-on .hero-btn-ghost {
+  background: rgba(10, 20, 36, .45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+html.im-on .hero-btn-primary { background: var(--accent); color: #04101c; box-shadow: 0 0 30px -6px rgba(127, 212, 255, .6); }
+html.im-on .hero-btn-primary:hover { background: var(--accent-2); color: #04101c; }
+@media (max-width: 879px) {
+  /* Crystal sits in the top third on phones; text below it */
+  html.im-on .hero { align-items: flex-end; padding: 40vh 0 12vh; }
+}
+
+/* ---------- Section titles: big type + mono index ---------- */
+html.im-on .title-box { margin-bottom: 3.5rem; }
+html.im-on .title-a {
+  font-size: clamp(2.6rem, 7vw, 5.2rem) !important;
+  font-weight: 700; letter-spacing: -.03em; text-transform: uppercase; line-height: 1;
+  color: #e9f7ff;
+}
+html.im-on .title-a::before,
+html.im-on .about-info h2::before {
+  display: block; margin-bottom: .9rem;
+  font-family: var(--font-mono); font-size: .72rem; font-weight: 400;
+  letter-spacing: .35em; color: var(--accent);
+}
+html.im-on .about-info h2::before { content: '[02] — ABOUT'; }
+html.im-on #services .title-a::before { content: '[03] — WHAT I DO'; }
+html.im-on #work .title-a::before { content: '[04] — SELECTED WORK'; }
+html.im-on .line-mf { width: 60px; height: 1px; background: var(--accent); box-shadow: 0 0 12px var(--accent); margin: 1.4rem auto 0; }
+
+/* ---------- Contact ---------- */
+html.im-on .form-control { background: rgba(4, 10, 20, .55) !important; }
+html.im-on .button-a { background-color: var(--accent) !important; border-color: var(--accent) !important; color: #04101c !important; }
+html.im-on .button-a:hover { background-color: var(--accent-2) !important; }
+html.im-on footer { border-top-color: var(--border); }
+
+/* ---------- HUD ---------- */
+.im-hud { display: none; }
+html.im-on .im-hud {
+  display: block; position: fixed; inset: 0; z-index: 5; pointer-events: none;
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .68rem;
+  letter-spacing: .18em; text-transform: uppercase; color: #8ea3bd;
+}
+.im-hud-sec { position: absolute; left: 28px; bottom: 26px; display: flex; align-items: center; gap: .55rem; }
+.im-hud-idx { color: #e9f7ff; }
+.im-hud-sep { opacity: .5; }
+.im-hud-bar { width: 90px; height: 1px; background: rgba(160, 220, 255, .18); margin: 0 .6rem; overflow: hidden; }
+.im-hud-bar i { display: block; height: 100%; background: #9fe4ff; transform-origin: left; transform: scaleX(0); }
+.im-hud-name { color: #cfefff; }
+.im-hud-coords { position: absolute; right: 28px; bottom: 26px; opacity: .7; white-space: pre; }
+.im-hud-scroll {
+  position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
+  transition: opacity .5s ease;
+}
+.im-hud-scroll i { width: 1px; height: 38px; background: linear-gradient(#9fe4ff, transparent); animation: im-scroll 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes im-scroll { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+.im-hud.is-scrolled .im-hud-scroll { opacity: 0; }
+/* Keep the bottom-right corner free for the back-to-top button */
+html.im-on .back-to-top { bottom: 64px; }
+@media (max-width: 879px) {
+  .im-hud-coords, .im-hud-scroll { display: none; }
+  .im-hud-sec { left: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .im-hud-scroll i { animation: none; }
+  html.im-on .work-img img { transition: none; }
+}
